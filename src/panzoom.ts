@@ -50,7 +50,7 @@ const defaultOptions: PanzoomOptions = {
 
 function Panzoom(
   elem: HTMLElement | SVGElement,
-  options?: Omit<PanzoomOptions, 'force'>
+  options?: PanzoomOptions
 ): PanzoomObject {
   if (!elem) {
     throw new Error('Panzoom requires an element as an argument')
@@ -92,7 +92,7 @@ function Panzoom(
     typeof options.origin === 'string' ? options.origin : isSVG ? '0 0' : '50% 50%'
   )
 
-  function setOptions(opts: Omit<PanzoomOptions, 'force'> = {}) {
+  function setOptions(opts: PanzoomOptions = {}) {
     for (const key in opts) {
       if (opts.hasOwnProperty(key)) {
         options[key] = opts[key]
